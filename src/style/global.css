@@ -6,3 +6,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+.main_info  p {
+    padding: 1rem;
+}
