@@ -37,13 +37,13 @@ jobs:
       - name: Cloudflare
         run: |
           npm install -g @cloudflare/wrangler
-          wrangler init --site jakpomagac
+          wrangler init --site jakpomoc
           sed -i 's+account_id = '\'\''+account_id = '"'"$ACCOUNT_ID"'"'+g' wrangler.toml
           sed -i 's+bucket = ""+bucket = "public"+g' wrangler.toml
           sed -i 's+zone_id = '\'\''+zone_id = '"'"$ZONE_ID"'"'+g' wrangler.toml
           sed -i 's+workers_dev = true++g' wrangler.toml
           echo "[env.production]" >> wrangler.toml
-          echo "route = 'jakpomagac.org/*'" >> wrangler.toml
+          echo "route = 'jakpomoc.org/*'" >> wrangler.toml
           echo 'zone_id = '"'"$ZONE_ID"'" >> wrangler.toml
           mkdir -p /home/runner/.wrangler/config/
           echo api_token = '"'"$API_TOKEN"'"' > /home/runner/.wrangler/config/default.toml
