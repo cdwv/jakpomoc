@@ -13,7 +13,7 @@ const Layout = ({ children, additionalClass = [] }) => (
         <Helmet>
             <html className="bg-white" lang="en" />
         </Helmet>
-        <div className="m-5">
+        <div className="m-5 max-w-7xl md:mx-auto">
             <Link to="/"><img src={Logo} alt="Jak pomóc Ukrainie" className="mx-auto" /></Link>
         </div>
         {children}
