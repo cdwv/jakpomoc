@@ -119,7 +119,7 @@ const IndexPage = () => {
                 <p>Jeśli szukasz czegoś wiecej, klikaj powyżej.</p>
                 <p className="mt-10">Pomagaj!</p>
             </div>
-            <div className="flex mx-2 md:mx-auto my-2 md:my-10 max-w-7xl">
+            <div className="md:flex mx-2 md:mx-auto my-2 md:my-10 max-w-7xl">
                 <div className="basis-full md:basis-2/5 p-4 md:p-6 flex flex-col justify-center">
                     <Header
                         level={2}
@@ -129,12 +129,12 @@ const IndexPage = () => {
                     />
                     <p>Zgłoś swój projekt!</p>
                 </div>
-                <div className="basis-full md:basis-3/5 flex bg-white drop-shadow-lg rounded-md">
+                <div className="basis-full md:basis-3/5 md:flex bg-white drop-shadow-lg rounded-md">
                     <div className="basis-1/2 p-5">
                         <flotiq-form />
                     </div>
-                    <div className="basis-1/2 text-right">
-                        <Image url={ContactImage} additionalClasses={['float-right']} />
+                    <div className="basis-1/2 text-right hidden md:block">
+                        <Image url={ContactImage} additionalClasses={['md:float-right']} />
                     </div>
                 </div>
             </div>
