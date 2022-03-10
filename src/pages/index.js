@@ -56,12 +56,12 @@ const IndexPage = () => {
                         level={2}
                         additionalClasses={['!font-medium', 'md:text-6xl', 'mb-4']}
                     />
-                    <p dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].help_info }} />
+                    <div dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].help_info }} />
                 </div>
                 <div className="basis-1/2">
-                    <Paragraph text="*wpłaty na potrzeby CPU należy dokonywać na konta:" />
+                    <p>*wpłaty na potrzeby CPU należy dokonywać na konta:</p>
                     <div className="bg-white">
-                        <p dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].account_numbers }} />
+                        <div dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].account_numbers }} />
                     </div>
                 </div>
             </div>
