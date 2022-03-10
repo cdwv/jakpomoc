@@ -44,7 +44,8 @@ module.exports = {
                 forceReload: false,
                 includeTypes: [
                     '_media',
-                    'example',
+                    'jak_pomoc',
+                    'jak_pomoc_sekcje'
                 ],
             },
         },
