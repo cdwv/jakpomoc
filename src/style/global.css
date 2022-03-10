@@ -10,3 +10,15 @@ html {
 .flotiq-form__element label {
   display: none;
 }
+
+.flotiq-form__element button, .flotiq-form__element [type='button'], .flotiq-form__element [type='reset'], .flotiq-form__element [type='submit'] {
+  background: #4CAF50;
+  border: none;
+  border-radius: 8px;
+}
+
+.flotiq-form__element input, .flotiq-form__element textarea {
+  background: #F9F9F9;
+  border-radius: 8px;
+  border: none;
+}

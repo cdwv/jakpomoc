@@ -89,7 +89,7 @@ const IndexPage = () => {
                                     ['md:text-3xl', 'pl-10', 'pr-5', 'mb-10', 'border-b', 'border-light-700']
                                 }
                             />
-                            <div className="pl-10">
+                            <div className="pl-10 md:max-h-[300px] md:overflow-auto">
                                 {section.organizacje.map((org) => (
                                     <div key={org.nazwa} className="pr-5">
                                         <Header
