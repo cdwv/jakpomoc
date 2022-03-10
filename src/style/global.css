@@ -18,7 +18,7 @@ html {
 }
 
 .flotiq-form__element input, .flotiq-form__element textarea {
-  background: #F9F9F9;
-  border-radius: 8px;
-  border: none;
+  background: #F9F9F9 !important;
+  border-radius: 8px !important;
+  border: none !important;
 }

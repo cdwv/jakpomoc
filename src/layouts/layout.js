@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import Footer from '../components/Footer';
 import Logo from '../assets/jak_pomoc_logo.png';
+import CookieInfo from '../components/CookieInfo/CookieInfo';
 
 const Layout = ({ children, additionalClass = [] }) => (
     <main
@@ -18,6 +19,7 @@ const Layout = ({ children, additionalClass = [] }) => (
         </div>
         {children}
         <Footer />
+        <CookieInfo />
     </main>
 );
 
