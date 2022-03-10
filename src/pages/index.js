@@ -60,7 +60,6 @@ const IndexPage = () => {
                     <div dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].help_info }} />
                 </div>
                 <div className="basis-full md:basis-1/2 p-4 md:p-6">
-                    <p className="pb-2">*wpłaty na potrzeby CPU należy dokonywać na konta:</p>
                     <div className="bg-white rounded-md p-5 md:p-10 drop-shadow-lg">
                         <div
                             dangerouslySetInnerHTML={{
@@ -89,7 +88,7 @@ const IndexPage = () => {
                                     ['md:text-3xl', 'pl-10', 'pr-5', 'mb-10', 'border-b', 'border-light-700']
                                 }
                             />
-                            <div className="pl-10 md:max-h-[300px] md:overflow-auto">
+                            <div className="pl-10">
                                 {section.organizacje.map((org) => (
                                     <div key={org.nazwa} className="pr-5">
                                         <Header
@@ -105,7 +104,16 @@ const IndexPage = () => {
                                 ))}
                             </div>
                         </Card.Body>
-                        <Card.Img src={section.obrazek[0].localFile.publicURL} alt={section.nazwa} />
+                        <div
+                            style={{ backgroundImage: `url('${section.obrazek[0].localFile.publicURL}')` }}
+                            className="w-full md:w-auto md:basis-1/2 bg-cover bg-center"
+                        >
+                            <Card.Img
+                                src={section.obrazek[0].localFile.publicURL}
+                                alt={section.nazwa}
+                                additionalClasses={['block md:hidden w-full']}
+                            />
+                        </div>
                     </Card>
                 ))}
             </div>
@@ -127,7 +135,7 @@ const IndexPage = () => {
                         alignment="center"
                         additionalClasses={['!font-medium', 'md:text-6xl', 'mb-10', 'md:text-left']}
                     />
-                    <p>Zgłoś swój projekt!</p>
+                    <p className="text-center md:text-left">Zgłoś swój projekt!</p>
                 </div>
                 <div className="basis-full md:basis-3/5 md:flex bg-white drop-shadow-lg rounded-md">
                     <div className="basis-1/2 p-5">
