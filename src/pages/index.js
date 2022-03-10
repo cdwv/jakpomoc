@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Button, Header, Card, Paragraph, Image } from 'flotiq-components-react';
+import { Button, Header, Card, Image } from 'flotiq-components-react';
 import Layout from '../layouts/layout';
 import ContactImage from '../assets/Rectangle 36.png';
 
@@ -38,13 +38,13 @@ const IndexPage = () => {
                 <div
                     dangerouslySetInnerHTML={{
                         __html: data.allJakPomoc.nodes[0].main_info
-                            .replace('style="padding: 1rem"', 'class="p-4 md:p-6"'),
+                            .replace(/style="padding: 1rem"/g, 'class="p-4 md:p-6"'),
                     }}
                     className="md:flex justify-between main_info p-2 md:p-10"
                 />
             </div>
-            <div className="flex bg-light p-2 md:p-10 mx-2 md:mx-auto my-2 md:my-10 max-w-7xl">
-                <div className="basis-1/2 p-4 md:p-6">
+            <div className="md:flex bg-light p-2 md:p-10 mx-2 md:mx-auto my-2 md:my-10 max-w-7xl rounded-md">
+                <div className="basis-full md:basis-1/2 p-4 md:p-6 flex flex-col justify-center">
                     <Header
                         text={(
                             <span>
@@ -54,14 +54,19 @@ const IndexPage = () => {
                             </span>
                         )}
                         level={2}
-                        additionalClasses={['!font-medium', 'md:text-6xl', 'mb-4']}
+                        alignment="center"
+                        additionalClasses={['!font-medium', 'md:text-6xl', 'mb-10', 'md:text-left']}
                     />
                     <div dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].help_info }} />
                 </div>
-                <div className="basis-1/2">
-                    <p>*wpłaty na potrzeby CPU należy dokonywać na konta:</p>
-                    <div className="bg-white">
-                        <div dangerouslySetInnerHTML={{ __html: data.allJakPomoc.nodes[0].account_numbers }} />
+                <div className="basis-full md:basis-1/2 p-4 md:p-6">
+                    <p className="pb-2">*wpłaty na potrzeby CPU należy dokonywać na konta:</p>
+                    <div className="bg-white rounded-md p-5 md:p-10">
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: data.allJakPomoc.nodes[0].account_numbers.replace(/<p/g, '<p class="pb-4"'),
+                            }}
+                        />
                     </div>
                 </div>
             </div>
@@ -75,12 +80,18 @@ const IndexPage = () => {
             </div>
             <div className="mx-2 md:mx-auto my-2 md:my-10 max-w-7xl">
                 {data.allJakPomocSekcje.nodes.map((section) => (
-                    <Card horizontal key={section.nazwa} bordered={false} additionalClasses={['bg-light']}>
-                        <Card.Body>
-                            <Header text={section.nazwa} level={4} additionalClasses={['md:text-3xl']} />
-                            <div>
+                    <Card horizontal key={section.nazwa} bordered={false} additionalClasses={['!bg-light', 'mb-5']}>
+                        <Card.Body additionalClasses={['!p-0 !pb-3']}>
+                            <Header
+                                text={section.nazwa}
+                                level={4}
+                                additionalClasses={
+                                    ['md:text-3xl', 'pl-10', 'pr-5', 'mb-10', 'border-b', 'border-light-700']
+                                }
+                            />
+                            <div className="pl-10">
                                 {section.organizacje.map((org) => (
-                                    <div key={org.nazwa}>
+                                    <div key={org.nazwa} className="pr-5">
                                         <Header
                                             text={org.nazwa}
                                             level={5}
@@ -88,7 +99,7 @@ const IndexPage = () => {
                                         />
                                         <p dangerouslySetInnerHTML={{ __html: org.opis }} />
                                         <a href={org.link} target="_blank" rel="noreferrer">
-                                            <Button label="Przejdź na witrynę fundacji" />
+                                            <Button label="Przejdź na witrynę" additionalClasses={['mt-3', 'mb-5']} />
                                         </a>
                                     </div>
                                 ))}
