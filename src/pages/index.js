@@ -61,7 +61,7 @@ const IndexPage = () => {
                 </div>
                 <div className="basis-full md:basis-1/2 p-4 md:p-6">
                     <p className="pb-2">*wpłaty na potrzeby CPU należy dokonywać na konta:</p>
-                    <div className="bg-white rounded-md p-5 md:p-10">
+                    <div className="bg-white rounded-md p-5 md:p-10 drop-shadow-lg">
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: data.allJakPomoc.nodes[0].account_numbers.replace(/<p/g, '<p class="pb-4"'),
@@ -109,27 +109,32 @@ const IndexPage = () => {
                     </Card>
                 ))}
             </div>
-            <div>
+            <div className="bg-light p-2 md:p-10 mx-2 md:mx-auto my-2 md:my-10 max-w-7xl rounded-md text-center">
                 <p>Oprócz powyższych form wsparcia, wiele można znaleźć np na stronie:</p>
-                <p>
+                <p className="text-lg font-bold">
                     <a href="https://pomagamukrainie.gov.pl" target="_blank" rel="noreferrer">
                         pomagamukrainie.gov.pl/
                     </a>
                 </p>
                 <p>Jeśli szukasz czegoś wiecej, klikaj powyżej.</p>
-                <p>Pomagaj!</p>
+                <p className="mt-10">Pomagaj!</p>
             </div>
-            <div className="flex">
-                <div className="basis-1/2">
-                    <Header level={2} text="Chcesz dołączyć do nas?" />
+            <div className="flex mx-2 md:mx-auto my-2 md:my-10 max-w-7xl">
+                <div className="basis-full md:basis-2/5 p-4 md:p-6 flex flex-col justify-center">
+                    <Header
+                        level={2}
+                        text="Chcesz dołączyć do nas?"
+                        alignment="center"
+                        additionalClasses={['!font-medium', 'md:text-6xl', 'mb-10', 'md:text-left']}
+                    />
                     <p>Zgłoś swój projekt!</p>
                 </div>
-                <div className="basis-1/2 flex">
-                    <div className="basis-1/2">
+                <div className="basis-full md:basis-3/5 flex bg-white drop-shadow-lg rounded-md">
+                    <div className="basis-1/2 p-5">
                         <flotiq-form />
                     </div>
-                    <div className="basis-1/2">
-                        <Image url={ContactImage} />
+                    <div className="basis-1/2 text-right">
+                        <Image url={ContactImage} additionalClasses={['float-right']} />
                     </div>
                 </div>
             </div>
